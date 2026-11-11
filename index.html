@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>India Tree Loss Database</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <meta name="description" content="Tree fellings reported in Indian news since 2021, on a map and in a filterable list.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="India Tree Loss Database">
@@ -50,8 +52,11 @@ button{cursor:pointer}
 .wrap{padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
 
 header.top{background:var(--surface);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;padding-block:12px}
-h1{font:700 20px/1.2 var(--font-head);margin:0;letter-spacing:-.01em}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding-block:10px}
+h1{font:700 20px/1.2 var(--font-head);margin:0;letter-spacing:-.01em;flex:none}
+.brand{display:block;line-height:0}
+.brand img{display:block;height:44px;width:auto;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sub{color:var(--muted);font-size:13px;flex:1 1 320px;min-width:0}
 
 .filters{position:relative;background:var(--surface);border-bottom:1px solid var(--line)}
@@ -157,6 +162,7 @@ footer.note a{color:var(--accent)}
   .facet{position:static}
   .pop{left:max(var(--gutter),env(safe-area-inset-left,0px));right:max(var(--gutter),env(safe-area-inset-right,0px));max-width:none;top:calc(100% - 4px)}
   .legend{max-width:190px;font-size:12px}
+  .brand img{height:36px}
   .ftoggle{display:inline-flex}
   #bar.collapsed .facet{display:none}
   .search{max-width:none}
@@ -166,7 +172,7 @@ footer.note a{color:var(--accent)}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <h1>India Tree Loss Database</h1>
+  <h1><a class="brand" href="./"><img src="logo.png" alt="TreeLoss.in" width="156" height="44"><span class="sr">India Tree Loss Database</span></a></h1>
   <div class="sub">Tree fellings of more than 1,000 trees reported in Indian news, 2021 to 2026. Tree counts are as reported, and some are estimates or claims. Map positions are approximate (town or district centre).</div>
 </div></header>
 
