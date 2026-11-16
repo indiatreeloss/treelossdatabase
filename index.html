@@ -460,7 +460,7 @@ function newIssueUrl(){
 }
 function setFooter(){
   var f=document.getElementById("foot");
-  f.innerHTML=esc("Showing "+FOOT.shown+" of "+FOOT.total+" projects, those with more than "+fmt(MIN_TREES)+" trees reported, from "+FOOT.src+". Each project appears once, with its latest reported status. Year is the year of the news report."+(FOOT.updated?" Data last updated "+FOOT.updated+".":""))+' <a href="'+esc(newIssueUrl())+'" target="_blank" rel="noopener">Report a tree felling we have missed</a>. To report an error or submit an item, <a href="#" id="contact-link" rel="nofollow">email us</a>.';
+  f.innerHTML=esc("Showing "+FOOT.shown+" of "+FOOT.total+" projects, those with more than "+fmt(MIN_TREES)+" trees reported, from "+FOOT.src+". Each project appears once, with its latest reported status. Year is the year of the news report."+(FOOT.updated?" Data last updated "+FOOT.updated+".":""))+' To report an error or tell us about a tree felling we have missed, <a href="#" id="contact-link" rel="nofollow">email us</a>.';
 }
 /* Contact email: never written out in the page source, and only assembled when a person clicks.
    Bots that read the HTML or run scripts on page load see no address. */
