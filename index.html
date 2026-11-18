@@ -62,6 +62,13 @@ header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;pad
 h1{font:700 20px/1.2 var(--font-head);margin:0;letter-spacing:-.01em;flex:none}
 .brand{display:block;line-height:0}
 .brand img{display:block;height:44px;width:auto;border-radius:4px}
+.brand .logo-dark{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .brand .logo-light{display:none}
+  :root:not([data-theme="light"]) .brand .logo-dark{display:block}
+}
+:root[data-theme="dark"] .brand .logo-light{display:none}
+:root[data-theme="dark"] .brand .logo-dark{display:block}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sub{color:var(--muted);font-size:13px;flex:1 1 320px;min-width:0}
 
@@ -178,7 +185,7 @@ footer.note a{color:var(--accent)}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <h1><a class="brand" href="./"><img src="logo.png" alt="TreeLoss.in" width="156" height="44"><span class="sr">India Tree Loss Database</span></a></h1>
+  <h1><a class="brand" href="./"><img class="logo-light" src="logo.png" alt="TreeLoss.in" width="156" height="44"><img class="logo-dark" src="logo-bw.png" alt="TreeLoss.in" width="156" height="44"><span class="sr">India Tree Loss Database</span></a></h1>
   <div class="sub">Tree fellings of more than 1,000 trees reported in Indian news, 2021 to 2026. Tree counts are as reported, and some are estimates or claims. Map positions are approximate (town or district centre).</div>
 </div></header>
 
