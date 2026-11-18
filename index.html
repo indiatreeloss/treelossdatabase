@@ -58,8 +58,10 @@ button{cursor:pointer}
 .wrap{padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
 
 header.top{background:var(--surface);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding-block:10px}
-h1{font:700 20px/1.2 var(--font-head);margin:0;letter-spacing:-.01em;flex:none}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;padding-block:10px}
+h1{font:700 22px/1.2 var(--font-head);margin:0;letter-spacing:-.01em;flex:0 1 auto;min-width:0}
+.subband{background:var(--chip);border-bottom:1px solid var(--line)}
+.subband .wrap{padding-block:8px;font-size:13.5px;color:var(--ink)}
 .brand{display:block;line-height:0}
 .brand img{display:block;height:44px;width:auto;border-radius:4px}
 .brand .logo-dark{display:none}
@@ -70,7 +72,6 @@ h1{font:700 20px/1.2 var(--font-head);margin:0;letter-spacing:-.01em;flex:none}
 :root[data-theme="dark"] .brand .logo-light{display:none}
 :root[data-theme="dark"] .brand .logo-dark{display:block}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.sub{color:var(--muted);font-size:13px;flex:1 1 320px;min-width:0}
 
 .filters{position:relative;background:var(--surface);border-bottom:1px solid var(--line)}
 .filters .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:10px}
@@ -163,6 +164,8 @@ a.chipbtn{text-decoration:none;color:inherit;display:inline-block}
 .summary .si{display:inline-flex;align-items:center;gap:5px;margin-right:12px;white-space:nowrap}
 a.linkbtn{background:none;color:var(--accent);padding:6px 4px;text-decoration:underline;text-underline-offset:2px;display:inline-block}
 footer.note a{color:var(--accent)}
+footer.note .fcols{display:flex;flex-wrap:wrap;gap:4px 40px}
+footer.note .fcols ul{margin:0;padding-left:16px;flex:1 1 320px;min-width:0}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:3000;font-size:13px;max-width:calc(100vw - 32px)}
 .mc{background:transparent}
 .mc span{display:flex;width:100%;height:100%;align-items:center;justify-content:center;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:600 13px var(--font-body);border:2px solid var(--surface);box-shadow:0 1px 6px rgba(0,0,0,.35);opacity:.92}
@@ -176,6 +179,7 @@ footer.note a{color:var(--accent)}
   .pop{left:max(var(--gutter),env(safe-area-inset-left,0px));right:max(var(--gutter),env(safe-area-inset-right,0px));max-width:none;top:calc(100% - 4px)}
   .legend{max-width:190px;font-size:12px}
   .brand img{height:36px}
+  h1{font-size:17px}
   .ftoggle{display:inline-flex}
   #bar.collapsed .facet{display:none}
   .search{max-width:none}
@@ -185,9 +189,10 @@ footer.note a{color:var(--accent)}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <h1><a class="brand" href="./"><img class="logo-light" src="logo.png" alt="TreeLoss.in" width="156" height="44"><img class="logo-dark" src="logo-bw.png" alt="TreeLoss.in" width="156" height="44"><span class="sr">India Tree Loss Database</span></a></h1>
-  <div class="sub">Tree fellings of more than 1,000 trees reported in Indian news, 2021 to 2026. Tree counts are as reported, and some are estimates or claims. Map positions are approximate (town or district centre).</div>
+  <a class="brand" href="./"><img class="logo-light" src="logo.png" alt="TreeLoss.in" width="156" height="44"><img class="logo-dark" src="logo-bw.png" alt="TreeLoss.in" width="156" height="44"></a>
+  <h1>India Tree Felling Incidents</h1>
 </div></header>
+<div class="subband"><div class="wrap">Tree-felling incidents involving more than 1,000 trees reported in Indian news sites from 2021 onwards.</div></div>
 
 <section class="filters" aria-label="Filters">
   <div class="wrap" id="bar">
@@ -473,7 +478,7 @@ function newIssueUrl(){
 }
 function setFooter(){
   var f=document.getElementById("foot");
-  f.innerHTML=esc("Showing "+FOOT.shown+" of "+FOOT.total+" projects, those with more than "+fmt(MIN_TREES)+" trees reported, from "+FOOT.src+". Year is the year of the news report."+(FOOT.updated?" Data last updated "+FOOT.updated+".":""))+' To report an error or tell us about a tree felling we have missed, <a href="#" id="contact-link" rel="nofollow">email us</a>.';
+  f.innerHTML='<div class="fcols"><ul><li>Tree counts are as reported, and some are estimates or claims.</li><li>Map positions are approximate (town or district centre).</li><li>Year on each record is the year of the news report.</li></ul><ul>'+(FOOT.updated?'<li>'+esc("Data last updated "+FOOT.updated)+'</li>':'')+'<li>To report an error or tell us about a tree felling we have missed, <a href="#" id="contact-link" rel="nofollow">email us</a>.</li></ul></div>';
 }
 /* Contact email: never written out in the page source, and only assembled when a person clicks.
    Bots that read the HTML or run scripts on page load see no address. */
