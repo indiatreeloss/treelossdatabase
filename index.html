@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-TKWDDGZN"></script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WL6X6S6H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,6 +16,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="India Tree Loss Database">
 <meta property="og:description" content="Tree fellings reported in Indian news since 2021, on a map and in a filterable list.">
+<link rel="canonical" href="https://treeloss.in/">
+<meta property="og:url" content="https://treeloss.in/">
 <meta property="og:image" content="https://treeloss.in/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -419,7 +421,7 @@ function fmt(n){return n==null?"n/a":n.toLocaleString("en-IN")}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function cssVar(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()||"#888"}
 function statusColor(s){var x=STATUSES.filter(function(a){return a.key===s})[0]; return cssVar(x?x.c:"--s-other")}
-function radius(n){return n==null?5:Math.min(20,3+2.4*Math.log10(n+1))}
+function radius(n){return n==null?5:Math.max(5,Math.min(28,6+5*(Math.log10(n)-2)))}
 
 /* ---------- Hash sync, links, sharing ---------- */
 function hashStr(){
